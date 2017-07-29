@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 def caesar_cipher(original_message, shift = 0)
+  return nil if original_message.nil?
   shift = shift % 26
   letters = original_message.split("")
   letters.map! do |letter|
@@ -23,5 +24,8 @@ def caesar_cipher(original_message, shift = 0)
 end
 
 get '/' do
-  
+  message = params['message']
+  shift = params['shift'].to_i
+  translated_message = caesar_cipher(message, shift)
+  erb :index, :locals => { translated_message: translated_message}
 end
