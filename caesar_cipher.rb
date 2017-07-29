@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 
 def caesar_cipher(original_message, shift = 0)
   return nil if original_message.nil?
