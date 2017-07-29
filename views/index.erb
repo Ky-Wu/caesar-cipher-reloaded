@@ -15,7 +15,7 @@
       <br>
       <input id='submit' type='submit' value='Translate!' />
     </form>
-    <% unless translated_message.empty? %>
+    <% unless translated_message.nil? %>
       <p> Translated Message:</p>
       <p id="translated_message"><%= translated_message %></p>
     <% end %>
